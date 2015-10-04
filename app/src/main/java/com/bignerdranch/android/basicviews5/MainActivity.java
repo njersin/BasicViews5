@@ -46,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
         mPresidentsList.setTextFilterEnabled(true);
         mPresidentsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick (AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(MainActivity.this,
-                        "You have selected " + mPresidentsArray[position],
-                        Toast.LENGTH_SHORT).show();
+                if (mPresidentsList.isItemChecked(position)) {
+                    Toast.makeText(MainActivity.this,
+                            "You have selected " + mPresidentsArray[position],
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
